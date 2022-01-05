@@ -77,6 +77,8 @@ class GildedRose(object):
                 else:
                     if item.quality < 50:
                         item.quality = item.quality + 1
+            if item.name.count("Conjured") > 0 or item.name.count("conjured") > 0:
+                item.quality = item.quality - 1
 
 
 if __name__ == "__main__":

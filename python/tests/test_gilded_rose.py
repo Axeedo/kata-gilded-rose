@@ -19,3 +19,14 @@ def test_golden_master():
 
     for i in range(0, len(original)):
         assert original[i] == current[i]
+
+
+def test_conjured_degradation():
+    conjured_item = Item("Conjured Mana Cake", sell_in=10, quality=20)
+    items = [conjured_item]
+    shop = GildedRose(items)
+
+    shop.update_quality()
+
+    assert conjured_item.sell_in == 9
+    assert conjured_item.quality == 18
